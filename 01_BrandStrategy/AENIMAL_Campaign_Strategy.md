@@ -46,7 +46,7 @@ A series of 3 posters to build momentum.
 - **Poster B: The AENIMAL**:
     - *Visual*: A reverse-engineered mechanical predator emerging from neon foliage.
     - *Copy*: "Rhythmic Ritual 01: AENIMAL. 30+ DJs. 6 Editions. One Home."
-- **Poster C: The Venue (T'Schuukre)**:
+- **Poster C: The Venue (T Schuurke)**:
     - *Visual*: Architectural blueprint of the venue transformed into a futuristic temple.
     - *Copy*: "Welcome Home. Vlijtingen -> Berlin."
 
@@ -60,7 +60,7 @@ Focus on Instagram/TikTok/Telegram.
     - *Hook*: "Do you remember the Zoo? Something has evolved."
 - **Phase 2: The Transmission (Weeks 3-4)**:
     - Reveal the 30+ DJ lineup in "Data Bursts" (fast, glitchy text reveals).
-    - Tease the "Cyberpunk-Jungle" decor transformation of T'Schuukre.
+    - Tease the "Cyberpunk-Jungle" decor transformation of T Schuurke.
 - **Phase 3: The Ritual (Weeks 5-6)**:
     - Focus on the "Welcome Home" message. Testimonials from original club-goers (now older) and new-gen ravers.
     - *Hook*: "No matter your age, this is your ritual."
@@ -79,4 +79,3 @@ Focus on Instagram/TikTok/Telegram.
 3.  **Generate Poster Mockups**: Create high-quality prompts for Stable Diffusion/DALL-E based on the "Mechanical Jungle" aesthetic.
 4.  **Draft Merch Tech-Packs**: Define print placements and garment types using Inkscape/Krita.
 5.  **Campaign Calendar**: Finalize dates for the 2-month cycle.
-

@@ -6,7 +6,7 @@
 Rhythmic Ritual is the spiritual successor to the legendary **Animinimals** (Hasselt Zoo). A 6-edition underground club series blending Techno, Psytrance, Disco, and Groovy rhythms.
 
 ### Edition 01: AENIMAL
-- **Venue**: T'Schuukre, Vlijtingen
+- **Venue**: T Schuurke, Vlijtingen
 - **Theme**: Cyberpunk / Jungle / Animals / Reverse-Engineered Transformers / Crypto
 - **Goal**: "Welcomed Home" - An inclusive space for all ages.
 
