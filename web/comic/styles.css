@@ -1,0 +1,494 @@
+:root {
+  --ink: #050609;
+  --paper: #edf5e5;
+  --acid: #c7ff1f;
+  --cyan: #00eaff;
+  --magenta: #ff2cbc;
+  --copper: #ff7a2f;
+  --panel-paper: #f1efd5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0a0d0f;
+  color: var(--paper);
+  font-family: Impact, Haettenschweiler, "Arial Black", "Noto Sans", system-ui, sans-serif;
+}
+
+.book {
+  display: grid;
+  gap: 28px;
+  padding: 28px;
+  padding-bottom: 96px;
+}
+
+.comic-actions {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  transform: translateX(-50%);
+}
+
+.comic-actions a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  color: var(--paper);
+  background: rgba(5, 6, 9, 0.9);
+  border: 1px solid rgba(237, 245, 229, 0.35);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 950;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+}
+
+.comic-actions a:hover {
+  color: var(--ink);
+  background: var(--acid);
+}
+
+.page {
+  position: relative;
+  width: min(100%, 1080px);
+  min-height: 1528px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--ink);
+  border: 8px solid #000;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+}
+
+.print-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.45) 0 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 8px 8px, 100% 22px;
+  mix-blend-mode: multiply;
+  z-index: 5;
+}
+
+.cover {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 54px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 44, 188, 0.34), transparent 22%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(199, 255, 31, 0.13) 0 3px, transparent 3px 22px),
+    linear-gradient(145deg, #071113, #050609 68%);
+}
+
+.cover-top,
+.cover-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  text-transform: uppercase;
+}
+
+.cover-top img {
+  width: 118px;
+  height: 118px;
+  object-fit: cover;
+  border: 3px solid rgba(237, 245, 229, 0.35);
+  box-shadow: 0 0 42px rgba(255, 44, 188, 0.28);
+}
+
+.cover-top p,
+.cover-top span,
+.cover-footer span,
+.kicker,
+.tagline,
+.caption,
+.bubble,
+.issue,
+.story-header p {
+  margin: 0;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.cover-top p {
+  color: var(--acid);
+  font-size: 21px;
+}
+
+.cover-top span,
+.cover-footer {
+  color: var(--paper);
+  font-size: 28px;
+}
+
+.cover-title {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  padding-bottom: 140px;
+}
+
+.kicker {
+  color: var(--acid);
+  font-size: 28px;
+}
+
+h1 {
+  margin: 22px 0 18px;
+  color: var(--paper);
+  font-size: 178px;
+  line-height: 0.78;
+  text-transform: uppercase;
+  text-shadow: 8px 0 var(--magenta), -8px 0 var(--cyan), 0 15px #000;
+}
+
+.tagline {
+  width: min(760px, 100%);
+  color: var(--paper);
+  font-size: 46px;
+  line-height: 1;
+}
+
+.cover-beast {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  opacity: 0.74;
+}
+
+.cover-beast::before,
+.cover-beast::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.cover-beast::before {
+  clip-path: polygon(50% 0, 4% 72%, 36% 70%, 50% 100%, 64% 70%, 96% 72%);
+  background: rgba(0, 0, 0, 0.82);
+  border: 10px solid var(--cyan);
+  filter: drop-shadow(0 0 42px rgba(0, 234, 255, 0.35));
+}
+
+.cover-beast::after {
+  background:
+    radial-gradient(ellipse at 37% 42%, var(--magenta) 0 7%, transparent 8%),
+    radial-gradient(ellipse at 63% 42%, var(--acid) 0 7%, transparent 8%),
+    repeating-radial-gradient(circle at 50% 55%, transparent 0 26px, rgba(199, 255, 31, 0.3) 27px 30px);
+}
+
+.cover-beast span {
+  position: absolute;
+  background: var(--cyan);
+  box-shadow: 0 0 22px var(--cyan);
+}
+
+.cover-beast span:nth-child(1) { left: 49%; top: 10%; width: 12px; height: 78%; }
+.cover-beast span:nth-child(2) { left: 16%; top: 48%; width: 68%; height: 8px; transform: rotate(27deg); }
+.cover-beast span:nth-child(3) { left: 16%; top: 48%; width: 68%; height: 8px; transform: rotate(-27deg); }
+.cover-beast span:nth-child(4) { left: 21%; top: 75%; width: 58%; height: 8px; background: var(--copper); }
+
+.story-page {
+  padding: 34px;
+  background:
+    repeating-linear-gradient(115deg, rgba(0, 234, 255, 0.08) 0 2px, transparent 2px 17px),
+    radial-gradient(circle at 20% 12%, rgba(199, 255, 31, 0.2), transparent 22%),
+    radial-gradient(circle at 78% 82%, rgba(255, 44, 188, 0.22), transparent 28%),
+    #06080a;
+}
+
+.story-header {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  align-items: end;
+  gap: 26px;
+  margin-bottom: 22px;
+}
+
+.story-header p {
+  color: var(--acid);
+  font-size: 24px;
+}
+
+h2 {
+  margin: 0;
+  color: var(--paper);
+  font-size: 82px;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 440px;
+  gap: 14px;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--ink);
+  background: var(--panel-paper);
+  border: 6px solid #000;
+  box-shadow: inset 0 0 0 3px rgba(255,255,255,0.55);
+}
+
+.panel:nth-child(1),
+.panel:nth-child(4) {
+  grid-row: span 2;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.26) 0 1px, transparent 1px);
+  background-size: 9px 9px;
+  mix-blend-mode: multiply;
+  z-index: 3;
+}
+
+.issue {
+  position: relative;
+  z-index: 4;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--acid);
+  border: 3px solid var(--paper);
+  font-size: 16px;
+}
+
+.art {
+  position: relative;
+  flex: 1;
+  min-height: 180px;
+  margin: 14px 0;
+  border: 5px solid var(--ink);
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.art::before,
+.art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.caption {
+  position: relative;
+  z-index: 4;
+  padding: 12px;
+  color: var(--paper);
+  background: rgba(5, 6, 9, 0.92);
+  font-size: 20px;
+  line-height: 1.08;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 5;
+  max-width: 64%;
+  left: 22px;
+  top: 74px;
+  padding: 12px 14px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 4px solid #000;
+  font-size: 16px;
+}
+
+.bubble.right {
+  left: auto;
+  right: 22px;
+}
+
+.gate::before {
+  background:
+    linear-gradient(90deg, transparent 20%, var(--cyan) 20% 23%, transparent 23% 77%, var(--magenta) 77% 80%, transparent 80%),
+    repeating-linear-gradient(0deg, rgba(237, 245, 229, 0.16) 0 4px, transparent 4px 20px),
+    linear-gradient(135deg, #111, #3a3d30);
+}
+
+.gate::after {
+  inset: 42px;
+  border: 10px solid var(--paper);
+  box-shadow: inset 0 0 0 14px var(--ink), 0 0 34px var(--acid);
+}
+
+.signal::before {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 24px, rgba(199, 255, 31, 0.55) 24px 28px),
+    radial-gradient(circle at 50% 58%, var(--magenta) 0 9%, transparent 10%),
+    radial-gradient(circle at 50% 58%, transparent 0 20%, var(--cyan) 21% 23%, transparent 24% 35%, var(--acid) 36% 38%, transparent 39%),
+    #07090b;
+}
+
+.signal::after {
+  background:
+    linear-gradient(105deg, transparent 0 44%, var(--copper) 45% 46%, transparent 47%),
+    linear-gradient(75deg, transparent 0 54%, var(--cyan) 55% 56%, transparent 57%);
+}
+
+.animal::before {
+  background:
+    radial-gradient(ellipse at 37% 46%, var(--magenta) 0 8%, transparent 9%),
+    radial-gradient(ellipse at 63% 46%, var(--acid) 0 8%, transparent 9%),
+    conic-gradient(from 45deg at 50% 62%, transparent 0 14%, var(--cyan) 14% 15%, transparent 15% 30%, var(--copper) 30% 31%, transparent 31%),
+    linear-gradient(180deg, #111, #060708);
+}
+
+.animal::after {
+  inset: 30px 16px;
+  clip-path: polygon(50% 2%, 6% 88%, 94% 88%);
+  border: 8px solid var(--cyan);
+  background: rgba(0, 234, 255, 0.08);
+}
+
+.spiral::before {
+  background:
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 13px, var(--acid) 14px 18px, transparent 19px 31px, var(--magenta) 32px 36px),
+    conic-gradient(from 0deg, var(--cyan), var(--magenta), var(--acid), var(--cyan));
+}
+
+.spiral::after {
+  inset: 18px;
+  background:
+    repeating-linear-gradient(90deg, rgba(5, 6, 9, 0.9) 0 9px, transparent 9px 22px),
+    radial-gradient(circle, transparent 0 36%, rgba(5, 6, 9, 0.72) 37% 100%);
+  mix-blend-mode: multiply;
+}
+
+.people::before {
+  background:
+    radial-gradient(circle at 20% 76%, var(--cyan) 0 8%, transparent 9%),
+    radial-gradient(circle at 40% 68%, var(--magenta) 0 9%, transparent 10%),
+    radial-gradient(circle at 58% 74%, var(--acid) 0 8%, transparent 9%),
+    radial-gradient(circle at 78% 66%, var(--copper) 0 9%, transparent 10%),
+    repeating-linear-gradient(115deg, rgba(0, 234, 255, 0.35) 0 3px, transparent 3px 18px),
+    #090d10;
+}
+
+.people::after {
+  background:
+    linear-gradient(0deg, var(--ink) 0 18%, transparent 18%),
+    radial-gradient(ellipse at 50% 100%, rgba(199, 255, 31, 0.28), transparent 55%);
+}
+
+.ritual::before {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(237, 245, 229, 0.9) 0 6%, transparent 7%),
+    repeating-radial-gradient(circle at 50% 42%, rgba(0, 234, 255, 0.45) 0 3px, transparent 3px 18px),
+    linear-gradient(180deg, #111, #050609);
+}
+
+.ritual::after {
+  inset: 44px 30px 28px;
+  border: 8px solid var(--acid);
+  box-shadow: 0 0 24px var(--acid), inset 0 0 24px rgba(199, 255, 31, 0.32);
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .book {
+    padding: 0;
+    gap: 0;
+  }
+
+  .comic-actions {
+    display: none;
+  }
+
+  .page {
+    width: 100vw;
+    min-height: 100vh;
+    page-break-after: always;
+    box-shadow: none;
+    border: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .book {
+    padding: 0;
+    gap: 0;
+    padding-bottom: 118px;
+  }
+
+  .page {
+    width: 100%;
+    min-height: auto;
+    border-width: 0;
+  }
+
+  .comic-actions {
+    width: calc(100% - 28px);
+  }
+
+  .comic-actions a {
+    flex: 1 1 100%;
+  }
+
+  .cover,
+  .story-page {
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 74px;
+  }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  .tagline {
+    font-size: 28px;
+  }
+
+  .story-header,
+  .panels {
+    grid-template-columns: 1fr;
+  }
+
+  .panels {
+    grid-auto-rows: 430px;
+  }
+
+  .panel:nth-child(1),
+  .panel:nth-child(4) {
+    grid-row: span 1;
+  }
+}
