@@ -16,6 +16,7 @@ Rhythmic Ritual is the spiritual successor to the legendary **Animinimals** (Has
 - `03_Design`: Logos, flyers, posters, and merch tech-packs.
 - `04_Music`: DJ lineups and playlists.
 - `06_Automation`: AI prompts and design scripts.
+- `09_ComfyUI_StoryDiffusion`: AI comic/graphic-novel workflow, generated panels, and local StoryDiffusion compatibility patch.
 
 ---
 *Vlijtingen ➔ Berlin*

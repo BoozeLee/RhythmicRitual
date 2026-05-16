@@ -1,0 +1,152 @@
+{
+  "prompt": {
+    "3": {
+      "class_type": "KSampler",
+      "inputs": {
+        "model": ["16", 0],
+        "positive": ["27", 0],
+        "negative": ["28", 0],
+        "latent_image": ["5", 0],
+        "seed": 375892614832,
+        "steps": 25,
+        "cfg": 8,
+        "sampler_name": "dpmpp_2m_sde_gpu",
+        "scheduler": "karras",
+        "denoise": 1
+      }
+    },
+    "4": {
+      "class_type": "CheckpointLoaderSimple",
+      "inputs": {
+        "ckpt_name": "DreamShaper_8_pruned.safetensors"
+      }
+    },
+    "5": {
+      "class_type": "EmptyLatentImage",
+      "inputs": {
+        "width": 1024,
+        "height": 1024,
+        "batch_size": 3
+      }
+    },
+    "8": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": ["3", 0],
+        "vae": ["4", 2]
+      }
+    },
+    "11": {
+      "class_type": "SeaArtCharactorPrompt",
+      "inputs": {
+        "prompt": "RhythmicRitual protagonist, same young woman in every panel, copper-brown skin, almond eyes, short black locs tied high with gold beads and two red cords, teal embroidered festival jacket over teal sleeveless top, crimson sash, black dance skirt, gold bangles, ankle bells, consistent face, same costume, graphic novel ink lineart, cinematic teal and amber lighting"
+      }
+    },
+    "12": {
+      "class_type": "SeaArtAppendPrompt",
+      "inputs": {
+        "charactor_prompt": ["11", 0],
+        "prompt": "Panel 1: moonlit rooftop courtyard at night, the dancer chalks a glowing circular rhythm sigil on stone tiles, hand drums and lanterns around her, first beat of a secret ritual, full-body three-quarter view, no border, no frame, clean image edges, dynamic low angle, rain mist, teal and amber highlights"
+      }
+    },
+    "13": {
+      "class_type": "SeaArtAppendPrompt",
+      "inputs": {
+        "charactor_prompt": ["11", 0],
+        "prompt": "Panel 2: the rhythm awakens on the same moonlit rooftop courtyard, translucent sound waves spiral from hand drums into luminous glyphs, the same dancer spins through the circle, identical hairstyle and outfit, beads and crimson sash in motion, lantern silhouettes, intense graphic novel action, no border, clean image edges"
+      }
+    },
+    "14": {
+      "class_type": "SeaArtAppendPrompt",
+      "inputs": {
+        "charactor_prompt": ["11", 0],
+        "prompt": "Panel 3: climax of the ritual on the same moonlit rooftop courtyard, the same dancer lands at the center as the glowing rhythm sigil becomes a radiant doorway of musical symbols, distant city skyline behind the rooftops, triumphant centered pose, full figure visible, clear top edge, no white strip, no border, no frame, dramatic rim light, detailed comic splash panel"
+      }
+    },
+    "16": {
+      "class_type": "SeaArtApplyStory",
+      "inputs": {
+        "model": ["4", 0],
+        "id_length": 3,
+        "width": 1024,
+        "height": 1024,
+        "same": 0.62
+      }
+    },
+    "18": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": ["4", 1],
+        "text": ["12", 0]
+      }
+    },
+    "19": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": ["4", 1],
+        "text": ["13", 0]
+      }
+    },
+    "20": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": ["4", 1],
+        "text": ["14", 0]
+      }
+    },
+    "21": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "images": ["8", 0],
+        "filename_prefix": "RhythmicRitual_v2"
+      }
+    },
+    "22": {
+      "class_type": "SeaArtAppendPrompt",
+      "inputs": {
+        "charactor_prompt": "",
+        "prompt": "low quality, blurry, deformed hands, extra fingers, inconsistent face, different character, duplicate person, cropped head, cropped top, sliced top edge, white strip, white border, black border, frame line, image border, poster edge, unreadable text, watermark, logo, bad anatomy, dull lighting"
+      }
+    },
+    "23": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": ["4", 1],
+        "text": ["22", 0]
+      }
+    },
+    "24": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": ["4", 1],
+        "text": ["22", 0]
+      }
+    },
+    "25": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "clip": ["4", 1],
+        "text": ["22", 0]
+      }
+    },
+    "27": {
+      "class_type": "SeaArtMergeStoryCondition",
+      "inputs": {
+        "clip": ["4", 1],
+        "conditioning_1": ["18", 0],
+        "conditioning_2": ["19", 0],
+        "conditioning_3": ["20", 0]
+      }
+    },
+    "28": {
+      "class_type": "SeaArtMergeStoryCondition",
+      "inputs": {
+        "clip": ["4", 1],
+        "conditioning_1": ["23", 0],
+        "conditioning_2": ["24", 0],
+        "conditioning_3": ["25", 0]
+      }
+    }
+  },
+  "client_id": "codex-rhythmicritual-v2"
+}
