@@ -1,6 +1,6 @@
 const soundCopy = {
   techno: "Deep pressure, industrial pulse, late-room hypnosis.",
-  psytrance: "Neural spirals, elastic bass, ultraviolet acceleration.",
+  psytrance: "Squelch spirals, elastic bass, ultraviolet acceleration.",
   disco: "Chrome warmth, human swing, mirror-ball voltage.",
   groovy: "Low-slung rhythm, body logic, smiles in the smoke."
 };
