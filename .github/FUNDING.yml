@@ -1,0 +1,6 @@
+# GitHub renders this as the repository Sponsor button.
+# Replace placeholders before applying to a repo.
+
+github: [BoozeLee]
+custom:
+  - https://github.com/sponsors/BoozeLee

@@ -1,0 +1,20 @@
+{
+  "classification": "paid-plugin-bundle",
+  "files": {
+    ".github/FUNDING.yml": "written",
+    "COMMERCIAL.md": "written",
+    "PRIVACY.md": "written",
+    "SECURITY.md": "written",
+    "SPONSORS.md": "written",
+    "SUPPORT.md": "written",
+    "docs/MONETIZATION.md": "written",
+    "marketplace/direct-stripe-product.md": "written",
+    "marketplace/release-checklist.md": "written",
+    "marketplace/stripe/prices.template.json": "written",
+    "marketplace/stripe/products.template.json": "written"
+  },
+  "project": "Rhythmic Ritual",
+  "secret_policy": "No credentials are stored in repository files.",
+  "slug": "rhythmicritual",
+  "source_repo": "BoozeLee/RhythmicRitual"
+}

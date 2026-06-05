@@ -1,0 +1,13 @@
+{
+  "products": [
+    {
+      "name": "Rhythmic Ritual",
+      "description": "Commercial support and delivery package for Rhythmic Ritual.",
+      "metadata": {
+        "project": "rhythmicritual",
+        "source_repo": "BoozeLee/RhythmicRitual",
+        "managed_by": "monetization-launch"
+      }
+    }
+  ]
+}
